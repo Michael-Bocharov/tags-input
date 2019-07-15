@@ -1,0 +1,15 @@
+
+<form [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+  <app-tag-input formControlName="tag"></app-tag-input>
+  <div *ngIf="form.invalid">
+    <span *ngIf="form.get('tag').errors.tag && form.get('tag').dirty">
+      {{ form.get('tag').errors.tag }}
+    </span>
+  </div>
+</form>
+
+<ul>
+  <li *ngFor="let t of tags">{{ t }}</li>
+</ul>
+
+<router-outlet></router-outlet>
